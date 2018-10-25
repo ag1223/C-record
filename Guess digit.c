@@ -4,19 +4,29 @@
 
 int main()
 {
-	int number;
+	srand(time(0));
+	int number = rand() % 100 + 1;
 	int digit;
-	int result = 0;
+	int count = 0;
 	
-	scanf("%d", &number);
-	while (number > 0)
+	printf("猜一个1到100的正整数吧！\n");
+	
+	do
 	{
-		digit = number % 10;
-		result = 10 * result + digit;
-		printf("number=%d, digit=%d, result=%d\n", number, digit, result);
-		number /= 10;
-	}
-	printf("%d\n", result);
-	
+		printf("请输入你的答案：");
+		scanf("%d", &digit);
+		if (digit > number)
+		{
+			printf("猜大了，再试一次。\n");
+		}
+		else
+		{
+			printf("猜小了，再试一次。\n");
+		}
+		count++; 
+	} while (digit != number);
+
+	printf("你猜对啦！用了%d次机会。\n", count);
+			
 	return 0;
 }
