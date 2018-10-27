@@ -29,4 +29,5 @@ int main()
 		mask /= 10;   // mask变为原来的10分之一 
 	} 
 	printf("\n");
+	return 0;
  } 
