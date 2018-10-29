@@ -42,3 +42,47 @@ int main()
 	printf("\nsum=%d\n", sum);
 	return 0;
 }
+
+
+// 将判断素数这个过程 写一个函数
+
+int isPrime(int digit)
+{
+	int flag = 1;
+	int k;
+	for (k=2; k<digit; k++)
+	{
+		if (digit % k == 0)
+		{
+			flag = 0;
+			break;
+		}
+	}
+	return flag;
+}
+
+int main()
+{
+	int n, m;
+	printf("请输入n和m的值(n<=m):");
+	scanf("%d %d", &n, &m);
+	int sum = 0;
+	int digit = 1;
+	int cnt = 0;
+	
+	while (cnt < m)
+	{
+		digit++;
+		if (isPrime(digit))
+		{
+			cnt++;
+			if (cnt >= n && cnt <= m)
+			{
+				sum += digit;
+				printf("%d ", digit);
+			}
+		}
+	}
+	printf("\nsum=%d\n", sum);
+	return 0;
+} 
